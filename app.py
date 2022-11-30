@@ -24,7 +24,7 @@ df = df.drop(df.columns[0], axis=1)
 
 
 # HEADINGS
-st.title('PIMA Diabetes Detection')
+st.title('Thyroid Detection')
 
 html_temp1 = """
     <br>
@@ -45,16 +45,7 @@ if st.checkbox("About Dataset"):
     html_temp2 = """
     <br>
     <p>
-    This dataset is originally from the <i><b>National Institute of Diabetes and Digestive and Kidney Diseases.</b></i> 
-    The objective of the dataset is to diagnostically predict whether or not a patient has diabetes,
-    based on certain diagnostic measurements included in the dataset.
-    Several constraints were placed on the selection of these instances from a larger database. 
-    In particular, all patients here are females at least 21 years old of Pima Indian heritage.
-    <br>
-    <br>
-    The datasets consists of several medical predictor variables and one target variable, Outcome. 
-    Predictor variables includes the number of pregnancies the patient has had, their BMI, insulin 
-    level, age, and so on.
+    dataset infomation and reference
     </p>
     <br>
     Reference : <a style='display: block;' href="https://www.kaggle.com/uciml/pima-indians-diabetes-database" target="_blank">Kaggle</a>
@@ -105,15 +96,15 @@ if st.checkbox("Train-Test Datasets"):
 
 # FUNCTION
 def user_report():
-    pregnancies = st.sidebar.slider('Pregnancies', 0, 20, 1)
-    glucose = st.sidebar.slider('Glucose', 0,200, 108)
-    bp = st.sidebar.slider('Blood Pressure', 0,140, 40)
-    skinthickness = st.sidebar.slider('Skin Thickness', 0,100, 25)
-    insulin = st.sidebar.slider('Insulin', 0,1000, 120)
-    bmi = st.sidebar.slider('BMI', 0,80, 25)
-    dpf = st.sidebar.slider('Diabetes Pedigree Function', 0.05,2.5, 0.45)
+    pregnancies = st.sidebar.slider('Using thyroxine?', 0, 2, 1)
+    glucose = st.sidebar.slider('T3 Level', 0,200, 108)
+    bp = st.sidebar.slider('TT4 Level', 0,140, 40)
+    skinthickness = st.sidebar.slider('T4U level', 0,100, 25)
+    insulin = st.sidebar.slider('FTI level', 0,1000, 120)
+    bmi = st.sidebar.slider('TBG level', 0,80, 25)
+    dpf = 0.4
     age = st.sidebar.slider('Age', 21,100, 24)
-    skin = st.sidebar.slider('Skin', 0.0,5.0, 1.04)
+    skin = st.sidebar.slider('Pregnancies', 0.0,5.0, 1.00)
 
     user_report_data = {
       'num_preg':pregnancies,
