@@ -29,7 +29,7 @@ st.title('Thyroid Detection')
 html_temp1 = """
     <br>
     <div style="background-color:red ;padding:2px">
-    <h1 style="color:white;text-align:center; font-size:35px"><b>Diabetes Checkup</b></h1>
+    <h1 style="color:white;text-align:center; font-size:35px"><b>Thyroid Checkup</b></h1>
     </div>
     <br>
     <br>
@@ -48,7 +48,6 @@ if st.checkbox("About Dataset"):
     dataset infomation and reference
     </p>
     <br>
-    Reference : <a style='display: block;' href="https://www.kaggle.com/uciml/pima-indians-diabetes-database" target="_blank">Kaggle</a>
     """
     st.markdown(html_temp2, unsafe_allow_html=True)
     st.subheader("Dataset")
@@ -147,9 +146,9 @@ else:
 st.subheader('Your Report: ')
 output=''
 if user_result[0]==0:
-  output = 'You are not Diabetic'
+  output = 'Possible thyroid Illness'
 else:
-  output = 'You are Diabetic'
+  output = 'No signs of thyroid Illness'
 st.title(output)
 st.subheader('Model Used: \n'+option)
 st.subheader('Accuracy: ')
@@ -171,124 +170,116 @@ else:
 
 # VISUALISATIONS REPORT
 st.title('Visualised Report')
-if st.checkbox("Show Visualized Report"):
+# if st.checkbox("Show Visualized Report"):
 
-    # Age vs Pregnancies
-    st.header('Pregnancy count Graph (Others vs Yours)')
-    fig_preg = plt.figure()
-    ax1 = sns.scatterplot(x = 'age', y = 'num_preg', data = df, hue = 'diabetes', palette = 'Dark2')
-    ax2 = sns.scatterplot(x = user_data['age'], y = user_data['num_preg'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,20,2))
-    plt.xlabel('Age')
-    plt.ylabel('Pregnencies')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_preg)
+    # # Age vs Pregnancies
+    # st.header('Pregnancy count Graph (Others vs Yours)')
+    # fig_preg = plt.figure()
+    # ax1 = sns.scatterplot(x = 'age', y = 'num_preg', data = df, hue = 'diabetes', palette = 'Dark2')
+    # ax2 = sns.scatterplot(x = user_data['age'], y = user_data['num_preg'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,20,2))
+    # plt.xlabel('Age')
+    # plt.ylabel('Pregnencies')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_preg)
 
 
-    # Age vs Glucose
-    st.header('Glucose Value Graph (Others vs Yours)')
-    fig_glucose = plt.figure()
-    ax3 = sns.scatterplot(x = 'age', y = 'glucose_conc', data = df, hue = 'diabetes' , palette='magma')
-    ax4 = sns.scatterplot(x = user_data['age'], y = user_data['glucose_conc'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,220,10))
-    plt.xlabel('Age')
-    plt.ylabel('Glucose conc.')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_glucose)
+    # # Age vs Glucose
+    # st.header('Glucose Value Graph (Others vs Yours)')
+    # fig_glucose = plt.figure()
+    # ax3 = sns.scatterplot(x = 'age', y = 'glucose_conc', data = df, hue = 'diabetes' , palette='magma')
+    # ax4 = sns.scatterplot(x = user_data['age'], y = user_data['glucose_conc'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,220,10))
+    # plt.xlabel('Age')
+    # plt.ylabel('Glucose conc.')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_glucose)
 
-    # Age vs Bp
-    st.header('Blood Pressure Value Graph (Others vs Yours)')
-    fig_bp = plt.figure()
-    ax5 = sns.scatterplot(x = 'age', y = 'diastolic_bp', data = df, hue = 'diabetes', palette='Reds')
-    ax6 = sns.scatterplot(x = user_data['age'], y = user_data['diastolic_bp'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,130,10))
-    plt.xlabel('Age')
-    plt.ylabel('Diastolic Blood Pressure')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_bp)
+    # # Age vs Bp
+    # st.header('Blood Pressure Value Graph (Others vs Yours)')
+    # fig_bp = plt.figure()
+    # ax5 = sns.scatterplot(x = 'age', y = 'diastolic_bp', data = df, hue = 'diabetes', palette='Reds')
+    # ax6 = sns.scatterplot(x = user_data['age'], y = user_data['diastolic_bp'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,130,10))
+    # plt.xlabel('Age')
+    # plt.ylabel('Diastolic Blood Pressure')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_bp)
 
-    # Age vs Skin Thickness
-    st.header('Skin Thickness Value Graph (Others vs Yours)')
-    fig_st = plt.figure()
-    ax7 = sns.scatterplot(x = 'age', y = 'thickness', data = df, hue = 'diabetes', palette='winter_r')
-    ax8 = sns.scatterplot(x = user_data['age'], y = user_data['thickness'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,110,10))
-    plt.xlabel('Age')
-    plt.ylabel('Skin Thickness')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_st)
+    # # Age vs Skin Thickness
+    # st.header('Skin Thickness Value Graph (Others vs Yours)')
+    # fig_st = plt.figure()
+    # ax7 = sns.scatterplot(x = 'age', y = 'thickness', data = df, hue = 'diabetes', palette='winter_r')
+    # ax8 = sns.scatterplot(x = user_data['age'], y = user_data['thickness'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,110,10))
+    # plt.xlabel('Age')
+    # plt.ylabel('Skin Thickness')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_st)
 
-    # Age vs Insulin
-    st.header('Insulin Value Graph (Others vs Yours)')
-    fig_i = plt.figure()
-    ax9 = sns.scatterplot(x = 'age', y = 'insulin', data = df, hue = 'diabetes', palette='rocket')
-    ax10 = sns.scatterplot(x = user_data['age'], y = user_data['insulin'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,900,50))
-    plt.xlabel('Age')
-    plt.ylabel('Insulin')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_i)
+    # # Age vs Insulin
+    # st.header('Insulin Value Graph (Others vs Yours)')
+    # fig_i = plt.figure()
+    # ax9 = sns.scatterplot(x = 'age', y = 'insulin', data = df, hue = 'diabetes', palette='rocket')
+    # ax10 = sns.scatterplot(x = user_data['age'], y = user_data['insulin'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,900,50))
+    # plt.xlabel('Age')
+    # plt.ylabel('Insulin')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_i)
 
-    # Age vs BMI
-    st.header('BMI Value Graph (Others vs Yours)')
-    fig_bmi = plt.figure()
-    ax11 = sns.scatterplot(x = 'age', y = 'bmi', data = df, hue = 'diabetes', palette='tab20_r')
-    ax12 = sns.scatterplot(x = user_data['age'], y = user_data['bmi'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,70,5))
-    plt.xlabel('Age')
-    plt.ylabel('BMI')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_bmi)
+    # # Age vs BMI
+    # st.header('BMI Value Graph (Others vs Yours)')
+    # fig_bmi = plt.figure()
+    # ax11 = sns.scatterplot(x = 'age', y = 'bmi', data = df, hue = 'diabetes', palette='tab20_r')
+    # ax12 = sns.scatterplot(x = user_data['age'], y = user_data['bmi'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,70,5))
+    # plt.xlabel('Age')
+    # plt.ylabel('BMI')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_bmi)
 
-    # Age vs Dpf
-    st.header('DPF Value Graph (Others vs Yours)')
-    fig_dpf = plt.figure()
-    ax13 = sns.scatterplot(x = 'age', y = 'diab_pred', data = df, hue = 'diabetes', palette='YlOrBr')
-    ax14 = sns.scatterplot(x = user_data['age'], y = user_data['diab_pred'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,3,0.2))
-    plt.xlabel('Age')
-    plt.ylabel('DiabetesPedigreeFunction')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_dpf)
+    # # Age vs Dpf
+    # st.header('DPF Value Graph (Others vs Yours)')
+    # fig_dpf = plt.figure()
+    # ax13 = sns.scatterplot(x = 'age', y = 'diab_pred', data = df, hue = 'diabetes', palette='YlOrBr')
+    # ax14 = sns.scatterplot(x = user_data['age'], y = user_data['diab_pred'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,3,0.2))
+    # plt.xlabel('Age')
+    # plt.ylabel('DiabetesPedigreeFunction')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_dpf)
 
-    # Age vs Skin
-    st.header('Skin Value Graph (Others vs Yours)')
-    fig_sk = plt.figure()
-    ax15 = sns.scatterplot(x = 'age', y = 'skin', data = df, hue = 'diabetes', palette='twilight_r')
-    ax16 = sns.scatterplot(x = user_data['age'], y = user_data['skin'], s = 150, color = color)
-    plt.xticks(np.arange(10,100,5))
-    plt.yticks(np.arange(0,4,0.2))
-    plt.xlabel('Age')
-    plt.ylabel('Skin')
-    plt.title('0 - Healthy & 1 - Unhealthy')
-    st.pyplot(fig_sk)
+    # # Age vs Skin
+    # st.header('Skin Value Graph (Others vs Yours)')
+    # fig_sk = plt.figure()
+    # ax15 = sns.scatterplot(x = 'age', y = 'skin', data = df, hue = 'diabetes', palette='twilight_r')
+    # ax16 = sns.scatterplot(x = user_data['age'], y = user_data['skin'], s = 150, color = color)
+    # plt.xticks(np.arange(10,100,5))
+    # plt.yticks(np.arange(0,4,0.2))
+    # plt.xlabel('Age')
+    # plt.ylabel('Skin')
+    # plt.title('0 - Healthy & 1 - Unhealthy')
+    # st.pyplot(fig_sk)
 
 # Add Image
 
-st.header('**About Me**')
+st.header('**Publication info**')
 col1, col2 = st.beta_columns([10,20])
 with col1:
-    st.image('my_img.jpg', width=200)
+    # st.image('my_img.jpg', width=200)
+    st.write("sample image")
 with col2:
     st.write(
       '''
-      *Hi! I'm **Manish** and I am a B.Tech final-year student,*
-      *specialized in Computer Scince and Engineering.*
-
-      *I'm passionate about Data Scince. Machine Learning and Deep Learning*
-      *enthusiast, and like to develope ML based products.*
-
-      * **Email:** *manishkumar.sharma0103@gmail.com*
-
-      * **Mobile:** +91 9026822669
-
+      add your paper citations
 
       '''
       )
@@ -296,8 +287,7 @@ with col2:
 
     st.markdown(
     """
-      * <a style='display: block;' href="https://github.com/Manish-Sharma-1810" target="_blank">GitHub</a>
-      * <a style='display: block;' href="https://www.linkedin.com/in/manish-kumar-1810" target="_blank">LinkedIn</a>
+    urls 
     """, unsafe_allow_html=True)
 
 
@@ -318,13 +308,12 @@ except ValueError:
 html_temp3 = """
     <br>
     <div>
-    <h1 style="text-align:center; font-size:25px"><b>Thank You Streamlit! For giving such Awsome Interface and make alive to my models.</b></h1>
     </div>
     <br>
     
     """
 st.markdown(html_temp3, unsafe_allow_html=True)
 
-st.write('**Learn more about [Streamlit](https://streamlit.io/)**')
+# st.write('**Learn more about [Streamlit](https://streamlit.io/)**')
 
 ################## END OF THE CODE ####################
