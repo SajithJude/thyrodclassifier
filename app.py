@@ -169,7 +169,7 @@ else:
   color = 'red'
 
 # VISUALISATIONS REPORT
-st.title('Visualised Report')
+# st.title('Visualised Report')
 # if st.checkbox("Show Visualized Report"):
 
     # # Age vs Pregnancies
