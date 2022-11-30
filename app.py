@@ -49,11 +49,11 @@ if st.checkbox("About Dataset"):
     </p>
     <br>
     """
-    st.markdown(html_temp2, unsafe_allow_html=True)
-    st.subheader("Dataset")
-    st.write(df.head(10))
-    st.subheader("Describe dataset")
-    st.write(df.describe())
+    # st.markdown(html_temp2, unsafe_allow_html=True)
+    # st.subheader("Dataset")
+    # st.write(df.head(10))
+    # st.subheader("Describe dataset")
+    # st.write(df.describe())
 
 
 # Set White Grid
@@ -63,10 +63,10 @@ sns.set_style("darkgrid")
 if st.checkbox("Exploratory Data Analysis (EDA)"):
     pr = ProfileReport(df, explorative=True)
     st.header('**Input DataFrame**')
-    st.write(df)
-    st.write('---')
-    st.header('**Profiling Report**')
-    st_profile_report(pr)
+    # st.write(df)
+    # st.write('---')
+    # st.header('**Profiling Report**')
+    # st_profile_report(pr)
 
 
 
